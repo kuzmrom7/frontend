@@ -1,5 +1,5 @@
 function isUnique(str) {
-  for (i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     const value = str[i];
 
     if (str.lastIndexOf(value) !== i) {
