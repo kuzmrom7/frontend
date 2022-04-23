@@ -1,12 +1,12 @@
 function removeDuplicates(str) {
   const result = [];
-  const added = {}
+  const obj = {};
 
   for (let i = 0; i < str.length; i++) {
     const current = str[i];
 
-    if (!added[current]) {
-      added[current] = true;
+    if (!obj[current]) {
+      obj[current] = true;
       result.push(current);
     }
   }

@@ -8,15 +8,15 @@ function flatten(arr) {
       const flat = flatten(value);
 
       for (let j = 0; j < flat.length; j++) {
-        result.push(flat[j])
+        result.push(flat[j]);
       }
     } else {
       result.push(value);
     }
-
   }
 
   return result;
 }
 
 console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
+console.log(flatten([[1, [1]], [[2, 3]], [[[4]]]])) // -> [1, 1, 2, 3, 4]
