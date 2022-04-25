@@ -1,3 +1,4 @@
+/* Solution */
 function arraySubset(source, subset) {
   if (subset.length > source.length) {
     return false;
@@ -17,6 +18,7 @@ function arraySubset(source, subset) {
   return true;
 }
 
+/* Test */
 console.log(arraySubset([2, 1, 3], [1, 2, 3])) // -> true
 console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) // -> true
 console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) // -> false

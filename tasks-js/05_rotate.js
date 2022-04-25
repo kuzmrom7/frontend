@@ -1,3 +1,4 @@
+/* Solution */
 function isStringRotated(source, test) {
   if (source.length !== test.length) {
     return false;
@@ -14,6 +15,7 @@ function isStringRotated(source, test) {
   return false;
 }
 
+/* Test */
 console.log(isStringRotated('javascript', 'scriptjava')) // -> true
 console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
 console.log(isStringRotated('javascript', 'java')) // -> false
