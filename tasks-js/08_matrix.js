@@ -4,8 +4,25 @@ const matrix = [
   [7, 8, 9]
 ]
 
+// rotate matrix 90 degrees
 function rotate(source) {
-  // todo
+  let rotated = source[0].map(_ => []);
+
+  for (let i = 0; i < source.length; i++) {
+    for (let j = 0; j < source[i].length; j++) {
+      const value = source[i][j];
+      rotated[j][source.length - 1 - i] = value;
+    }
+  }
+
+  return rotated;
 }
 
-console.log(rotate(matrix))
+function prettyPrint(arr) {
+  arr.forEach(element => {
+    console.log(element);
+  });
+}
+
+
+prettyPrint(rotate(matrix));
