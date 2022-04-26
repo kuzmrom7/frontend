@@ -13,7 +13,7 @@ function deepEqual(a, b) {
   }
 
   if (Object.keys(a).length !== Object.keys(b).length) {
-    return false
+    return false;
   }
 
   for (const key of Object.keys(a)) {
@@ -22,7 +22,7 @@ function deepEqual(a, b) {
     }
   }
 
-  return true
+  return true;
 }
 
 /* Test */
