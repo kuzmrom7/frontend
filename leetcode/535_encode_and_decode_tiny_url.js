@@ -1,3 +1,5 @@
+//https://leetcode.com/problems/encode-and-decode-tinyurl/
+
 const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHUJKLMNOPQRSTUVWXYZ';
 const url = 'https://tinyurl.com/';
 
