@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function highestFrequency(arr) {
   const obj = {};
   let highest = 0;
@@ -22,7 +22,7 @@ function highestFrequency(arr) {
   return highestKey;
 }
 
-/* Test */
+// Test
 console.log(highestFrequency(['a', 'b', 'c', 'c', 'd', 'e'])) // -> c
 console.log(highestFrequency(['abc', 'def', 'abc', 'def', 'abc'])) // -> abc
 console.log(highestFrequency(['abc', 'def'])) // -> abc

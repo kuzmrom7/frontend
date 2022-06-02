@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function isUnique(str) {
   for (let i = 0; i < str.length; i++) {
     const value = str[i];
@@ -16,7 +16,7 @@ function isUnique(str) {
 //   return new Set(str).size === str.length;
 // }
 
-/* Test */
+// Test
 console.log(isUnique('abcdef')) // -> true
 console.log(isUnique('1234567')) // -> true
 console.log(isUnique('abcABC')) // -> true

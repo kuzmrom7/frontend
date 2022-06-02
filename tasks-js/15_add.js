@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function add(first, second) {
   if (typeof first === 'undefined') {
     return add;
@@ -18,7 +18,7 @@ function add(first, second) {
   return first + second;
 }
 
-/* Test */
+// Test
 console.log(add(20, 22)) // -> 42
 console.log(add(20)(22)) // -> 42
 

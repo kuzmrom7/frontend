@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 
 // memo
 const fibonacci = (function () {
@@ -40,7 +40,7 @@ const fibonacci = (function () {
 //   return sequence;
 // }
 
-/* Test */
+// Test
 console.log(fibonacci(1)) // -> [1]
 console.log(fibonacci(2)) // -> [1, 1]
 

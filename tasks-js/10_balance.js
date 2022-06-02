@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function isBalanced(str) {
   const opened = '[{(';
   const closed = ')}]';
@@ -26,7 +26,7 @@ function isBalanced(str) {
   return !arr.length;
 }
 
-/* Test */
+// Test
 console.log(isBalanced('(x + y) - (4)')) // -> true
 console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
 console.log(isBalanced('[{()}]')) // -> true

@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function search(array, target) {
   let start = 0
   let end = array.length - 1
@@ -32,6 +32,6 @@ function search(array, target) {
   }
 }
 
-/* Test */
+// Test
 console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
 console.log(search([1, 3, 6, 13, 17], 12)) // -> -1

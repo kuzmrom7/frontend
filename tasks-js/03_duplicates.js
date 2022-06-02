@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function removeDuplicates(str) {
   const result = [];
   const obj = {};
@@ -20,7 +20,7 @@ function removeDuplicates(str) {
 //   return Array.from(new Set(str)).join('');
 // }
 
-/* Test */
+// Test
 console.log(removeDuplicates('abcd')) // -> 'abcd'
 console.log(removeDuplicates('aabbccdd')) // -> 'abcd'
 console.log(removeDuplicates('abcddbca')) // -> 'abcd'

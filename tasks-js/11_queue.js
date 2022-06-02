@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 class Queue {
   #storage = {}
   #last = 0
@@ -34,7 +34,7 @@ class Queue {
   }
 }
 
-/* Test */
+// Test
 const queue1 = new Queue();
 
 queue1.add("hello");

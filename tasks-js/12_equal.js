@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function deepEqual(a, b) {
   if (Number.isNaN(a) && Number.isNaN(b)) {
     return true;
@@ -25,7 +25,7 @@ function deepEqual(a, b) {
   return true;
 }
 
-/* Test */
+// Test
 const source = { a: 1, b: { c: 1 } }
 const test1 = { a: 1, b: { c: 1 } }
 const test2 = { a: 1, b: { c: 2 } }

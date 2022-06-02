@@ -1,4 +1,4 @@
-/* Solution */
+// Solution
 function flatten(arr) {
   const result = [];
 
@@ -19,6 +19,6 @@ function flatten(arr) {
   return result;
 }
 
-/* Test */
+// Test
 console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
 console.log(flatten([[1, [1]], [[2, 3]], [[[4]]]])) // -> [1, 1, 2, 3, 4]
