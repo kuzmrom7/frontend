@@ -5,7 +5,8 @@
 /js-concepts - classical js concept for interviews
 /leetcode -  solutions to problems with leetcode
 /polyfills - implementation of typical polyfills
-/tasks-js - specific js tasks with a solution
+/classic-tasks - specific js tasks with a solution
+/interview-tasks - real job interview tasks
 ```
 
 ---
