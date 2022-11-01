@@ -4,11 +4,10 @@
  */
 function singleNumber(nums) {
   let mask = 0;
-  nums.forEach(num => mask ^= num);
+  nums.forEach((num) => (mask ^= num));
 
-  return mask
-};
-
+  return mask;
+}
 
 // console.log(singleNumber([2, 2, 1])) // => 1
-console.log(singleNumber([4, 1, 2, 1, 2])) // => 4
+console.log(singleNumber([4, 1, 2, 1, 2])); // => 4

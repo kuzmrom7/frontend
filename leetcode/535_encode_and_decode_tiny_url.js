@@ -1,16 +1,19 @@
 //https://leetcode.com/problems/encode-and-decode-tinyurl/
 
-const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHUJKLMNOPQRSTUVWXYZ';
-const url = 'https://tinyurl.com/';
+const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHUJKLMNOPQRSTUVWXYZ";
+const url = "https://tinyurl.com/";
 
 const codeMap = new Map();
 const urlMap = new Map();
 
 function generateCode() {
-  return url + new Array(6)
-    .fill("")
-    .map(_ => chars.charAt(~~(Math.random() * 62)))
-    .join("")
+  return (
+    url +
+    new Array(6)
+      .fill("")
+      .map((_) => chars.charAt(~~(Math.random() * 62)))
+      .join("")
+  );
 }
 
 /**
@@ -23,24 +26,23 @@ function encode(longUrl) {
 
   let code = generateCode();
 
-  codeMap.set(code, longUrl)
-  urlMap.set(longUrl, code)
+  codeMap.set(code, longUrl);
+  urlMap.set(longUrl, code);
 
   return code;
-};
+}
 
 /**
  * Decodes a shortened URL to its original URL.
  */
 function decode(shortUrl) {
   return codeMap.get(shortUrl);
-};
+}
 
 /**
  * Your functions will be called as such:
  * decode(encode(strs));
  */
-
 
 /**
  * Test

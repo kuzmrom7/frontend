@@ -6,10 +6,10 @@
  */
 function missingNumber(nums) {
   let n = nums.length;
-  let sum = nums.reduce((acc, curr) => acc + curr, 0)
+  let sum = nums.reduce((acc, curr) => acc + curr, 0);
 
-  return n * (n + 1) / 2 - sum;
-};
+  return (n * (n + 1)) / 2 - sum;
+}
 
 // Test
 // console.log(missingNumber([3, 0, 1])); // -> 2

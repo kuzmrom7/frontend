@@ -12,7 +12,7 @@ function removeDuplicates(str) {
     }
   }
 
-  return result.join(',');
+  return result.join(",");
 }
 
 // Used Set
@@ -21,7 +21,7 @@ function removeDuplicates(str) {
 // }
 
 // Test
-console.log(removeDuplicates('abcd')) // -> 'abcd'
-console.log(removeDuplicates('aabbccdd')) // -> 'abcd'
-console.log(removeDuplicates('abcddbca')) // -> 'abcd'
-console.log(removeDuplicates('abababcdcdcd')) // -> 'abcd'
+console.log(removeDuplicates("abcd")); // -> 'abcd'
+console.log(removeDuplicates("aabbccdd")); // -> 'abcd'
+console.log(removeDuplicates("abcddbca")); // -> 'abcd'
+console.log(removeDuplicates("abababcdcdcd")); // -> 'abcd'

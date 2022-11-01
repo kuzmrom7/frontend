@@ -1,18 +1,18 @@
 // Solution
 class Queue {
-  #storage = {}
-  #last = 0
-  #first = 0
+  #storage = {};
+  #last = 0;
+  #first = 0;
 
   get size() {
     return this.#last - this.#first;
   }
 
   print() {
-    Object.keys(this.#storage).forEach(id => {
+    Object.keys(this.#storage).forEach((id) => {
       const element = this.#storage[id];
-      console.log({ id, element })
-    })
+      console.log({ id, element });
+    });
   }
 
   add(item) {
@@ -44,5 +44,3 @@ queue1.delete();
 
 console.log(queue1.size);
 queue1.print();
-
-

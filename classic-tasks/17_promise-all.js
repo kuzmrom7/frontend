@@ -2,8 +2,6 @@ const p1 = new Promise((resolve) => resolve(1));
 const p2 = new Promise((resolve) => setTimeout(() => resolve(200), 3000));
 const p3 = new Promise((resolve) => resolve([1, 2, 3]));
 
-
-
 // first
 function promiseAllRecursive(values) {
   //
@@ -13,11 +11,12 @@ function promiseAllRecursive(values) {
 
   const [first, ...rest] = values;
 
-  return Promise.resolve(first).then(result => {
-    return promiseAllRecursive(rest).then(
-      restResult => [result, ...restResult]
-    )
-  })
+  return Promise.resolve(first).then((result) => {
+    return promiseAllRecursive(rest).then((restResult) => [
+      result,
+      ...restResult,
+    ]);
+  });
 }
 
 // second
@@ -28,7 +27,7 @@ function promiseAllIterative(values) {
 
     values.forEach((value, index) => {
       Promise.resolve(value)
-        .then(result => {
+        .then((result) => {
           results[index] = result;
           completed += 1;
 
@@ -36,9 +35,9 @@ function promiseAllIterative(values) {
             resolve(results);
           }
         })
-        .catch(err => reject(err))
+        .catch((err) => reject(err));
     });
-  })
+  });
 }
 
 // Promise.all([
@@ -49,10 +48,6 @@ function promiseAllIterative(values) {
 //   console.log(arr);
 // })
 
-promiseAllIterative([
-  p1,
-  p2,
-  p3,
-]).then((arr) => {
+promiseAllIterative([p1, p2, p3]).then((arr) => {
   console.log(arr);
-})
+});

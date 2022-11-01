@@ -1,12 +1,12 @@
 // Solution
 function isBalanced(str) {
-  const opened = '[{(';
-  const closed = ')}]';
+  const opened = "[{(";
+  const closed = ")}]";
   const obj = {
     "]": "[",
     ")": "(",
     "}": "{",
-  }
+  };
   const arr = [];
 
   for (let i = 0; i < str.length; i++) {
@@ -27,8 +27,8 @@ function isBalanced(str) {
 }
 
 // Test
-console.log(isBalanced('(x + y) - (4)')) // -> true
-console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
-console.log(isBalanced('[{()}]')) // -> true
-console.log(isBalanced('(50)(')) // -> false
-console.log(isBalanced('[{]}')) // -> false
+console.log(isBalanced("(x + y) - (4)")); // -> true
+console.log(isBalanced("(((10 ) ()) ((?)(:)))")); // -> true
+console.log(isBalanced("[{()}]")); // -> true
+console.log(isBalanced("(50)(")); // -> false
+console.log(isBalanced("[{]}")); // -> false

@@ -1,0 +1,35 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Tasks and concepts that can be useful to a frontend developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "fix": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuzmrom7/frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuzmrom7/frontend/issues"
+  },
+  "homepage": "https://github.com/kuzmrom7/frontend#readme",
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1"
+  },
+  "dependencies": {
+    "jest": "^29.2.2"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}

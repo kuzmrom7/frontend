@@ -17,9 +17,8 @@ const fibonacci = (function () {
     }
 
     return sequence;
-  }
-})()
-
+  };
+})();
 
 // slow
 // function fibonacci(n) {
@@ -28,7 +27,6 @@ const fibonacci = (function () {
 //   if (n < 2) {
 //     return sequence.slice(0, n);
 //   }
-
 
 //   while (sequence.length < n) {
 //     const last = sequence[sequence.length - 1];
@@ -41,7 +39,7 @@ const fibonacci = (function () {
 // }
 
 // Test
-console.log(fibonacci(1)) // -> [1]
-console.log(fibonacci(2)) // -> [1, 1]
+console.log(fibonacci(1)); // -> [1]
+console.log(fibonacci(2)); // -> [1, 1]
 
-console.log(fibonacci(8)) // -> [1, 1, 2, 3, 5, 8, 13, 21]
+console.log(fibonacci(8)); // -> [1, 1, 2, 3, 5, 8, 13, 21]

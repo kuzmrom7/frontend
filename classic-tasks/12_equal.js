@@ -8,7 +8,12 @@ function deepEqual(a, b) {
     return false;
   }
 
-  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) {
+  if (
+    typeof a !== "object" ||
+    typeof b !== "object" ||
+    a === null ||
+    b === null
+  ) {
     return a === b;
   }
 
@@ -18,7 +23,7 @@ function deepEqual(a, b) {
 
   for (const key of Object.keys(a)) {
     if (!deepEqual(a[key], b[key])) {
-      return false
+      return false;
     }
   }
 
@@ -26,11 +31,11 @@ function deepEqual(a, b) {
 }
 
 // Test
-const source = { a: 1, b: { c: 1 } }
-const test1 = { a: 1, b: { c: 1 } }
-const test2 = { a: 1, b: { c: 2 } }
-console.log(deepEqual(source, test1)) // -> true
-console.log(deepEqual(source, test2)) // -> false
-console.log(deepEqual(NaN, NaN)) // -> true
-console.log(deepEqual('test', 'test!')) // -> false
-console.log(deepEqual()) // -> true
+const source = { a: 1, b: { c: 1 } };
+const test1 = { a: 1, b: { c: 1 } };
+const test2 = { a: 1, b: { c: 2 } };
+console.log(deepEqual(source, test1)); // -> true
+console.log(deepEqual(source, test2)); // -> false
+console.log(deepEqual(NaN, NaN)); // -> true
+console.log(deepEqual("test", "test!")); // -> false
+console.log(deepEqual()); // -> true

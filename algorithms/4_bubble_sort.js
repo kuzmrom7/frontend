@@ -17,11 +17,13 @@ function bubbleSort(arr) {
 
   return {
     arr,
-    callCount
+    callCount,
   };
 }
 
-
 // Test
-const candidate = [0, 3, 2, 5, 6, 8, 1, 9, 4, 2, 1, 2, 9, 6, 4, 1, 7, -1, -5, 23, 6, 2, 35, 6, 3, 32];
-console.log(bubbleSort(candidate)) // => [0,1,1,2,3.......]
+const candidate = [
+  0, 3, 2, 5, 6, 8, 1, 9, 4, 2, 1, 2, 9, 6, 4, 1, 7, -1, -5, 23, 6, 2, 35, 6, 3,
+  32,
+];
+console.log(bubbleSort(candidate)); // => [0,1,1,2,3.......]

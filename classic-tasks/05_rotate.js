@@ -16,6 +16,6 @@ function isStringRotated(source, test) {
 }
 
 // Test
-console.log(isStringRotated('javascript', 'scriptjava')) // -> true
-console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
-console.log(isStringRotated('javascript', 'java')) // -> false
+console.log(isStringRotated("javascript", "scriptjava")); // -> true
+console.log(isStringRotated("javascript", "iptjavascr")); // -> true
+console.log(isStringRotated("javascript", "java")); // -> false

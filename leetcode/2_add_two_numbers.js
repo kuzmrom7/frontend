@@ -37,9 +37,8 @@ function addTwoNumbers(l1, l2) {
     currentNode = currentNode.next;
   }
 
- 
   return headNode.next;
-};
+}
 
 /**
  * Test
@@ -52,6 +51,5 @@ function addTwoNumbers(l1, l2) {
 
 // const l1 = { val: 2, next: { val: 4, next: { val: 3, next: null } } };
 // const l2 = { val: 5, next: { val: 6, next: { val: 4, next: null } } };
-
 
 // addTwoNumbers(l1, l2)

@@ -22,7 +22,6 @@ function twoSum(nums, target) {
   return [];
 }
 
-
 /**
  * Test
  */
