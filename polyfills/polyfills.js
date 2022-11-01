@@ -2,22 +2,22 @@ module.exports = function () {
   // .map
   if (!Array.prototype.myMap) {
     Array.prototype.myMap = function (cb) {
-      const result = [];
+      const result = []
 
       if (!(this instanceof Array || this instanceof String)) {
-        throw new TypeError("Array.prototype.myMap was called on wrong type.");
+        throw new TypeError('Array.prototype.myMap was called on wrong type.')
       }
 
-      if (typeof cb !== "function") {
-        throw new TypeError(`Array.prototype.myMap ${cb} is not a function.`);
+      if (typeof cb !== 'function') {
+        throw new TypeError(`Array.prototype.myMap ${cb} is not a function.`)
       }
 
       for (let i = 0; i < this.length; i++) {
-        result.push(cb(this[i], i, this));
+        result.push(cb(this[i], i, this))
       }
 
-      return result;
-    };
+      return result
+    }
   }
 
   // .reduce
@@ -25,24 +25,22 @@ module.exports = function () {
     Array.prototype.myReduce = function (cb, initial) {
       if (!(this instanceof Array || this instanceof String)) {
         throw new TypeError(
-          "Array.prototype.myReduce was called on wrong type."
-        );
+          'Array.prototype.myReduce was called on wrong type.'
+        )
       }
 
-      if (typeof cb !== "function") {
-        throw new TypeError(
-          `Array.prototype.myReduce ${cb} is not a function.`
-        );
+      if (typeof cb !== 'function') {
+        throw new TypeError(`Array.prototype.myReduce ${cb} is not a function.`)
       }
 
-      let acc = arguments.length >= 2 ? initial : this[0];
-      let start = arguments.length >= 2 ? 0 : 1;
+      let acc = arguments.length >= 2 ? initial : this[0]
+      let start = arguments.length >= 2 ? 0 : 1
 
       for (let i = start; i < this.length; i++) {
-        acc = cb(acc, this[i], i, this);
+        acc = cb(acc, this[i], i, this)
       }
 
-      return acc;
-    };
+      return acc
+    }
   }
-};
+}

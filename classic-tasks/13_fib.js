@@ -2,23 +2,23 @@
 
 // memo
 const fibonacci = (function () {
-  const sequence = [1, 1];
+  const sequence = [1, 1]
 
   return function (n) {
     if (sequence.length >= n) {
-      return sequence.slice(0, n);
+      return sequence.slice(0, n)
     }
 
     while (sequence.length < n) {
-      const last = sequence[sequence.length - 1];
-      const prev = sequence[sequence.length - 2];
+      const last = sequence[sequence.length - 1]
+      const prev = sequence[sequence.length - 2]
 
-      sequence.push(last + prev);
+      sequence.push(last + prev)
     }
 
-    return sequence;
-  };
-})();
+    return sequence
+  }
+})()
 
 // slow
 // function fibonacci(n) {
@@ -39,7 +39,7 @@ const fibonacci = (function () {
 // }
 
 // Test
-console.log(fibonacci(1)); // -> [1]
-console.log(fibonacci(2)); // -> [1, 1]
+console.log(fibonacci(1)) // -> [1]
+console.log(fibonacci(2)) // -> [1, 1]
 
-console.log(fibonacci(8)); // -> [1, 1, 2, 3, 5, 8, 13, 21]
+console.log(fibonacci(8)) // -> [1, 1, 2, 3, 5, 8, 13, 21]

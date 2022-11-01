@@ -13,31 +13,31 @@
  * @return {ListNode}
  */
 function addTwoNumbers(l1, l2) {
-  let currentNode = new ListNode(0);
-  let headNode = currentNode;
+  let currentNode = new ListNode(0)
+  let headNode = currentNode
 
-  let extra = 0;
+  let extra = 0
 
   while (l1 || l2 || extra) {
-    let sum = extra;
+    let sum = extra
 
     if (l1) {
-      sum = sum + l1.val;
-      l1 = l1.next;
+      sum = sum + l1.val
+      l1 = l1.next
     }
 
     if (l2) {
-      sum = sum + l2.val;
-      l2 = l2.next;
+      sum = sum + l2.val
+      l2 = l2.next
     }
 
-    extra = Math.floor(sum / 10);
+    extra = Math.floor(sum / 10)
 
-    currentNode.next = new ListNode(sum % 10);
-    currentNode = currentNode.next;
+    currentNode.next = new ListNode(sum % 10)
+    currentNode = currentNode.next
   }
 
-  return headNode.next;
+  return headNode.next
 }
 
 /**

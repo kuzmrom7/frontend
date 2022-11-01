@@ -1,21 +1,21 @@
 // Solution
 function isStringRotated(source, test) {
   if (source.length !== test.length) {
-    return false;
+    return false
   }
 
   for (let i = 0; i < source.length; i++) {
-    const rotate = source.slice(i, source.length) + source.slice(0, i);
+    const rotate = source.slice(i, source.length) + source.slice(0, i)
 
     if (rotate === test) {
-      return true;
+      return true
     }
   }
 
-  return false;
+  return false
 }
 
 // Test
-console.log(isStringRotated("javascript", "scriptjava")); // -> true
-console.log(isStringRotated("javascript", "iptjavascr")); // -> true
-console.log(isStringRotated("javascript", "java")); // -> false
+console.log(isStringRotated('javascript', 'scriptjava')) // -> true
+console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
+console.log(isStringRotated('javascript', 'java')) // -> false

@@ -6,20 +6,20 @@
  * @return {number[]}
  */
 function twoSum(nums, target) {
-  const seen = new Map();
+  const seen = new Map()
 
   for (let i = 0; i < nums.length; i++) {
-    let num = nums[i];
-    let diff = target - num;
+    let num = nums[i]
+    let diff = target - num
 
     if (seen.has(diff)) {
-      return [seen.get(diff), i];
+      return [seen.get(diff), i]
     }
 
-    seen.set(num, i);
+    seen.set(num, i)
   }
 
-  return [];
+  return []
 }
 
 /**

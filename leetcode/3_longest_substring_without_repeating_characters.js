@@ -4,28 +4,28 @@
  * @return {number}
  */
 function lengthOfLongestSubstring(str) {
-  let maxLength = 0;
+  let maxLength = 0
 
   for (let i = 0; i < str.length; i++) {
-    const currentSet = new Set();
+    const currentSet = new Set()
 
     for (let j = i; j < str.length; j++) {
-      let currentJ = str[j];
+      let currentJ = str[j]
 
       if (currentSet.has(currentJ)) {
-        break;
+        break
       } else {
-        currentSet.add(currentJ);
+        currentSet.add(currentJ)
       }
     }
 
-    maxLength = Math.max(maxLength, currentSet.size);
+    maxLength = Math.max(maxLength, currentSet.size)
   }
 
-  return maxLength;
+  return maxLength
 }
 
 // Test
-console.log(lengthOfLongestSubstring("abcabcbb")); // => 3
-console.log(lengthOfLongestSubstring("bbbbb")); // => 1
-console.log(lengthOfLongestSubstring("pwwkew")); // =>3
+console.log(lengthOfLongestSubstring('abcabcbb')) // => 3
+console.log(lengthOfLongestSubstring('bbbbb')) // => 1
+console.log(lengthOfLongestSubstring('pwwkew')) // =>3

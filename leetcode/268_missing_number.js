@@ -5,10 +5,10 @@
  * @return {number}
  */
 function missingNumber(nums) {
-  let n = nums.length;
-  let sum = nums.reduce((acc, curr) => acc + curr, 0);
+  let n = nums.length
+  let sum = nums.reduce((acc, curr) => acc + curr, 0)
 
-  return (n * (n + 1)) / 2 - sum;
+  return (n * (n + 1)) / 2 - sum
 }
 
 // Test

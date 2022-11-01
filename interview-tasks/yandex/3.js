@@ -1,52 +1,52 @@
 function sum(x, y) {
-  return x + y;
+  return x + y
 }
 
 function double(x) {
-  return sum(x, x);
+  return sum(x, x)
 }
 
 function minus(x, y) {
-  return x - y;
+  return x - y
 }
 
 function addOne(x) {
-  return sum(x, 1);
+  return sum(x, 1)
 }
 
-double(sum(2, 3)); // 10
+double(sum(2, 3)) // 10
 
 function chain(fns) {
   const Chain = function () {
-    this.value;
-  };
+    this.value
+  }
 
   Chain.prototype.execute = function () {
-    return this.value;
-  };
+    return this.value
+  }
 
   for (let i = 0; i < Object.keys(fns).length; i++) {
-    let key = Object.keys(fns)[i];
+    let key = Object.keys(fns)[i]
 
     if (!Chain.hasOwnProperty(key)) {
       Chain.prototype[key] = function () {
-        let args = arguments.length === 0 ? [this.value] : arguments;
+        let args = arguments.length === 0 ? [this.value] : arguments
 
         if (this.value) {
-          args = args.length > 0 ? [this.value, ...args] : args;
-          this.value = fns[key](...args);
+          args = args.length > 0 ? [this.value, ...args] : args
+          this.value = fns[key](...args)
         } else {
-          this.value = fns[key](...args);
+          this.value = fns[key](...args)
         }
-        return this;
-      };
+        return this
+      }
     }
   }
 
-  return new Chain();
+  return new Chain()
 }
 
-let c = chain({ sum: sum, minus: minus, double: double, addOne: addOne });
+let c = chain({ sum: sum, minus: minus, double: double, addOne: addOne })
 
 // console.log(c
 // 	.sum(1, 2)
@@ -56,7 +56,7 @@ let c = chain({ sum: sum, minus: minus, double: double, addOne: addOne });
 
 console.log(
   c.sum(4, 5).sum(5).minus(4).sum(7).addOne().double().double().execute()
-);
+)
 
 // var c1 = c.sum(1, 2);
 // c1.execute(); // == fns.sum(1, 2) == 3

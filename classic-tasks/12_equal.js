@@ -1,41 +1,41 @@
 // Solution
 function deepEqual(a, b) {
   if (Number.isNaN(a) && Number.isNaN(b)) {
-    return true;
+    return true
   }
 
   if (typeof a !== typeof b) {
-    return false;
+    return false
   }
 
   if (
-    typeof a !== "object" ||
-    typeof b !== "object" ||
+    typeof a !== 'object' ||
+    typeof b !== 'object' ||
     a === null ||
     b === null
   ) {
-    return a === b;
+    return a === b
   }
 
   if (Object.keys(a).length !== Object.keys(b).length) {
-    return false;
+    return false
   }
 
   for (const key of Object.keys(a)) {
     if (!deepEqual(a[key], b[key])) {
-      return false;
+      return false
     }
   }
 
-  return true;
+  return true
 }
 
 // Test
-const source = { a: 1, b: { c: 1 } };
-const test1 = { a: 1, b: { c: 1 } };
-const test2 = { a: 1, b: { c: 2 } };
-console.log(deepEqual(source, test1)); // -> true
-console.log(deepEqual(source, test2)); // -> false
-console.log(deepEqual(NaN, NaN)); // -> true
-console.log(deepEqual("test", "test!")); // -> false
-console.log(deepEqual()); // -> true
+const source = { a: 1, b: { c: 1 } }
+const test1 = { a: 1, b: { c: 1 } }
+const test2 = { a: 1, b: { c: 2 } }
+console.log(deepEqual(source, test1)) // -> true
+console.log(deepEqual(source, test2)) // -> false
+console.log(deepEqual(NaN, NaN)) // -> true
+console.log(deepEqual('test', 'test!')) // -> false
+console.log(deepEqual()) // -> true
