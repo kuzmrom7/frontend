@@ -6,15 +6,13 @@
 // Todo: fix
 class Store {
   // #subscribes = new Set();
-  
   // #callSubscribes() {
   //     if (this.#subscribes.size > 0) {
   //         this.#subscribes.forEach(fn => {
   //             fn();
   //         })
-  //     }   
+  //     }
   // }
-
   // Object.defineProperty('data', {
   //     get: function() {
   //         this;
@@ -24,16 +22,13 @@ class Store {
   //         this.#callSubscribes;
   //     }
   // });
-          
   // subscribe(fn) {
   //     this.subscribes.set(fn, fn);
   // }
-  
   // unsubscribe(fn) {
   //     this.subscribes.delete(fn);
   // }
 }
-
 
 // Test
 const store = new Store()
@@ -46,7 +41,7 @@ const secondSubscriber = (data) => console.log('second', data)
 store.subscribe(firstSubscriber)
 store.subscribe(secondSubscriber)
 
-store.data = {newKey: 'newString'}
+store.data = { newKey: 'newString' }
 
 // CONSOLE
 // first { newKey: 'newString' }
@@ -54,7 +49,7 @@ store.data = {newKey: 'newString'}
 
 store.unsubscribe(firstSubscriber)
 
-store.data = {lastKey: 'lastKey'}
+store.data = { lastKey: 'lastKey' }
 
 // CONSOLE
 // second { lastKey: 'lastKey' }
