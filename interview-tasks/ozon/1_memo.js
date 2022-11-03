@@ -2,56 +2,47 @@
 
 // Solution
 const memoize = (fn, ms) => {
-  let memo = new Set();
-  let result;
-  let start = new Date().getTime();
+  let storage = new Map()
+  let result
+  let start = new Date().getTime()
 
-  function calcValue() {
-    if (memo.has(fn)) {
-      result = memo.get(fn);
-    } else {
-      result = fn();
-      memo.set(fn, result);
+  const setResult = async () => {
+    if (storage.has(fn)) {
+      result = storage.get(fn)
+      return
     }
+
+    result = await fn()
+    storage.set(fn, result)
   }
 
-  function clear() {
-    memo.clear();
+  const checkTimeOver = () => {
+    let timeExp = new Date().getTime() - start > ms
+    return timeExp
+  }
 
+  const resetAll = async () => {
+    storage.clear()
 
-    return function () {
-      let timeExp = new Date().getTime() - start > ms;
+    result = await fn()
+    storage.set(fn, result)
 
-      if (timeExp) {
-        clear();
+    start = new Date().getTime()
+  }
 
-        result = fn();
-        memo.set(fn, result);
+  return async function () {
+    const isTimeOver = checkTimeOver()
 
-        start = new Date().getTime();
-
-        return result;
-      }
-
-      calcValue();
-
-      return result;
+    if (isTimeOver) {
+      await resetAll()
+    } else {
+      await setResult()
     }
+
+    return result
   }
 }
 
+// Test ./__tests__/1_memo.test.js
 
-// Test
-let count = 0;
-
-// Solution
-const getData = () => Promise.resolve(++count)
-const sleep = (n) => new Promise(resolve => setTimeout(resolve, n))
-
-const getJsonMemoize = memoize(getData, 1000)
-
-console.log(await getJsonMemoize()) // 1
-console.log(await getJsonMemoize()) // 1
-await sleep(3000)
-console.log(await getJsonMemoize()) // 2
-console.log(await getJsonMemoize()) // 2
+module.exports = memoize
