@@ -1,39 +1,40 @@
-// Cделать Store класс, когда меняем data, вызываем все функции, которые подписаны
-// Сделал немного неправильно, но время было мало, поэтому сразу так внутри написал.
-// Нужно немного по другому делать(Object.defineProperty (Store.prototype, ‘data’) а не внутри класса)
+// Cделать Store класс, когда меняем data, вызываем все функции, на которые подписаны
 
 // Solution
-// Todo: fix
 class Store {
-  // #subscribes = new Set();
-  // #callSubscribes() {
-  //     if (this.#subscribes.size > 0) {
-  //         this.#subscribes.forEach(fn => {
-  //             fn();
-  //         })
-  //     }
-  // }
-  // Object.defineProperty('data', {
-  //     get: function() {
-  //         this;
-  //     }
-  //     set: function(data) {
-  //         this = data;
-  //         this.#callSubscribes;
-  //     }
-  // });
-  // subscribe(fn) {
-  //     this.subscribes.set(fn, fn);
-  // }
-  // unsubscribe(fn) {
-  //     this.subscribes.delete(fn);
-  // }
+  #subscribes = new Map()
+
+  constructor() {
+    Object.defineProperty(this, 'data', {
+      get: function () {
+        return this._data
+      },
+      set: function (data) {
+        this._data = data
+        this.#callSubscribes()
+      },
+    })
+  }
+
+  #callSubscribes() {
+    if (this.#subscribes.size === 0) return
+
+    for (let fn of this.#subscribes.values()) {
+      fn.call(this, this.data)
+    }
+  }
+
+  subscribe(fn) {
+    this.#subscribes.set(fn, fn)
+  }
+
+  unsubscribe(fn) {
+    this.#subscribes.delete(fn)
+  }
 }
 
 // Test
 const store = new Store()
-
-// Пример использования
 
 const firstSubscriber = (data) => console.log('first', data)
 const secondSubscriber = (data) => console.log('second', data)
@@ -43,7 +44,7 @@ store.subscribe(secondSubscriber)
 
 store.data = { newKey: 'newString' }
 
-// CONSOLE
+// CONSOLE expect
 // first { newKey: 'newString' }
 // second { newKey: 'newString' }
 
@@ -51,5 +52,5 @@ store.unsubscribe(firstSubscriber)
 
 store.data = { lastKey: 'lastKey' }
 
-// CONSOLE
+// CONSOLE exptect
 // second { lastKey: 'lastKey' }
