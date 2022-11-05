@@ -12,45 +12,39 @@ class Queue {
   }
 
   async #workerSync() {
-    for (let [q, i] of this.#queue) {
+    for (let [index, q] of this.#queue.entries()) {
       await new Promise((resolve) => {
         this.processTask(q, resolve)
       })
 
-      await delete this.#queue[i]
-      if (i === this.#queue.length - 1) {
+      delete this.#queue[index]
+      if (index === this.#queue.length - 1) {
         this.whenEmpty()
       }
     }
   }
 
-  #workerParalleled() {
-    let inProcess = 0
-    let i = 0
+  async #workerParalleled() {
+    let inProcess = []
+    let complete = []
+    let count = this.#queue.length
 
-    while (this.#queue.length > 0) {
-      if (inProcess > this.paralleledTasks) continue
+    while (this.#queue.length && count !== complete.length) {
+      const curr = this.#queue.shift()
 
-      inProcess += 1
+      const promise = new Promise((resolve) => {
+        this.processTask(curr, resolve)
+      })
+      inProcess.push(promise)
 
-      let q = this.#queue.length[i]
+      promise.then(() => {
+        inProcess.shift()
+        complete.push('done')
 
-      new Promise((resolve) => {
-        this.processTask(q, resolve)
-      }).then(() => {
-        delete this.#queue[i]
-        inProcess -= 1
-
-        if (this.#queue.length == 0) {
+        if (complete.length === count) {
           this.whenEmpty()
         }
       })
-
-      if (i === this.#queue.length - 1) {
-        i = 0
-      } else {
-        i++
-      }
     }
   }
 
@@ -77,15 +71,25 @@ const processTask = (task, resolve) => {
     resolve()
   }, workTime)
 }
-const paralleledTasks = 1
 const whenEmpty = () => console.log('Queue is empty')
 
-const queue = new Queue(processTask, paralleledTasks, whenEmpty)
+// Sync
+const queueSync = new Queue(processTask, 1, whenEmpty)
 
-queue.add('task 1')
-queue.add('task 2')
-queue.add('task 3')
-queue.loop()
+queueSync.add('task 1')
+queueSync.add('task 2')
+queueSync.add('task 3')
+queueSync.add('task 4')
+queueSync.add('task 5')
+queueSync.loop()
+
+// Async
+const queueAsync = new Queue(processTask, 2, whenEmpty)
+
+queueAsync.add('task 1')
+queueAsync.add('task 2')
+queueAsync.add('task 3')
+queueAsync.loop()
 
 /* 
 example output:
